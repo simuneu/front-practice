@@ -1,0 +1,76 @@
+@jwt = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc0OTk3NTA2MiwiZXhwIjoxNzUwMDE4MjYyfQ.PpYq2QHGhZYWO7EdZyfE29fKPSs140_8z_uEOx4i_MI
+
+###
+POST http://localhost:3000/sign-up
+Content-Type: application/json
+
+{
+    "email" : "song@amail.com",
+    "password" : "12341234",
+    "nickname" : "song"
+}
+
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email" : "1234@amail.com",
+    "password" : "12341234"
+}
+
+###
+GET http://localhost:3000/users
+
+###
+GET http://localhost:3000/users/1
+
+###
+PUT http://localhost:3000/users/2
+Content-Type: application/json
+
+{
+    "email" : "lee@amail.com",
+    "password" : "12341234",
+    "newPassword" : "12345656",
+    "nickname" : "song"
+}
+
+###
+DELETE http://localhost:3000/users/2
+Content-Type: application/json
+
+{
+    "password" : "12345656"
+}
+
+
+//post
+
+###
+POST http://localhost:3000/posts
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+    "title" : "first title",
+    "content" : "first content"
+}
+
+###
+GET http://localhost:3000/posts
+
+###
+GET http://localhost:3000/posts/1
+
+###
+PUT http://localhost:3000/posts/1
+Content-Type: application/json
+
+{
+    "title" : "~~ first title",
+    "content" : "~~ first content"
+}
+
+###
+DELETE  http://localhost:3000/posts/1
